@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Advanced BMI Calculator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Advanced BMI Calculator</h1>
+
+    <form method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter Name"
+               required>
+
+        <input type="number"
+               step="0.1"
+               name="weight"
+               placeholder="Weight (kg)"
+               required>
+
+        <input type="number"
+               step="0.01"
+               name="height"
+               placeholder="Height (m)"
+               required>
+
+        <button type="submit">
+            Calculate BMI
+        </button>
+
+    </form>
+
+
+    {% if error %}
+
+        <div class="error">
+
+            {{ error }}
+
+        </div>
+
+    {% endif %}
+
+
+    {% if bmi %}
+
+    <div class="result">
+
+        <h2>Your BMI: {{ bmi }}</h2>
+
+        <h3>Category: {{ category }}</h3>
+
+        <p>{{ suggestion }}</p>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="buttons">
+
+        <a href="/history">
+
+            <button>
+                View History
+            </button>
+
+        </a>
+
+
+        <a href="/graph">
+
+            <button>
+                View Graph
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
